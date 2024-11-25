@@ -1,0 +1,28 @@
+/* ProfilePage.css */
+.profile-page {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-details p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+  }
+  

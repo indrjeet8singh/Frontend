@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { backendurl } from '../../Servicepage';
 
@@ -35,7 +35,7 @@ function Myeditreord() {
     }
     useEffect(() => {
         singleuser();
-    }, []);
+    }, );
 
 
     const updaterecord = async () => {
@@ -49,7 +49,7 @@ function Myeditreord() {
             })
             const res = await mydata.json();
             console.log(res);
-            usenav("/dashboard");
+            usenav("/dashboard/Users");
 
            
 
@@ -116,7 +116,7 @@ function Myeditreord() {
                         <div className='col-12 p-2 mt-2 text-center'>
                             <input type='button' value="Update record" className='btn btn-success' onClick={updaterecord}/>
                             <input type='reset' value="cancel" className='btn btn-danger ms-3' />
-                            <Link to="/">login page</Link>
+                            
                         </div>
                     </div>
                 </div>

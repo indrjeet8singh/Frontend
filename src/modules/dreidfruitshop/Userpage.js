@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+
 import { backendurl } from "../../Servicepage";
 
-function Profilepage() {
+function Userpage() {
   const [sdata, setdatas] = useState([]);
-  const { id } = useParams();
+  
 
   const singleuser = () => {
-    axios.get(`${backendurl}/singledata/${id}`).then((d) => {
+    axios.get(`${backendurl}/validuser`).then((d) => {
       console.log(d.data);
       setdatas(d.data);
     });
@@ -34,6 +34,8 @@ function Profilepage() {
                 </div>
               </div>
               <div className="col-12 p-2 mt-2">
+              <h5 class="card-title text-info">{sdata._id}</h5>
+
                 <h5 class="card-title text-info">{sdata.fullname}</h5>
               </div>
               <div className="col-12 p-2 mt-2">
@@ -46,7 +48,7 @@ function Profilepage() {
                 <h5 class="card-title">Gender:{sdata.gender}</h5>
               </div>
               <div className="col-12 p-2 mt-2">
-                <h5 class="card-title">Course:{sdata.course}</h5>
+                <h5 class="card-title">State:{sdata.state}</h5>
               </div>
             </div>
           </div>
@@ -56,4 +58,4 @@ function Profilepage() {
   );
 }
 
-export default Profilepage;
+export default Userpage;

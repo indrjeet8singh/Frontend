@@ -1,21 +1,18 @@
-
-
 import React, { useState } from 'react';
-import {  HiOutlinePhone } from "react-icons/hi";
-
+import { HiOutlineMail } from "react-icons/hi";
+import { TbPasswordFingerprint } from "react-icons/tb";
 import { Link, useNavigate } from 'react-router-dom';
 import { backendurl } from '../../Servicepage';
 import { FaRegUser } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import '../../assets/Userloginpage.css'; 
 
-function Myforgetpage() {
+function Userloginpage() {
     const usenav = useNavigate();
 
     const [userlogin, usersetlogin] = useState({
-        phone: "",
-        fullname: "",
-        dob:""
+        email: "",
+        pass: ""
     });
 
     const updateinput = (e) => {
@@ -27,15 +24,15 @@ function Myforgetpage() {
     };
 
     const mylogin = async () => {
-        const { phone, fullname,dob } = userlogin;
-        if (phone === "" || fullname === ""|| dob==="") {
+        const { email, pass } = userlogin;
+        if (email === "" || pass === "") {
             toast.error("Email and password cannot be blank");
         } else {
             try {
                 const response = await fetch(`${backendurl}/mylogin`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ phone, fullname,dob })
+                    body: JSON.stringify({ email, pass })
                 });
                 const res = await response.json();
                 if (res.status === 422) {
@@ -59,37 +56,25 @@ function Myforgetpage() {
                 </div>
                 <div className="form-group">
                     <label className="form-label">
-                        <HiOutlinePhone /> phone No
+                        <HiOutlineMail /> Email Address
                     </label>
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter Phone No"
-                        name="phone"
+                        placeholder="Email ID"
+                        name="email"
                         onChange={updateinput}
                     />
                 </div>
                 <div className="form-group">
                     <label className="form-label">
-                         fullname
+                        <TbPasswordFingerprint /> Password
                     </label>
                     <input
-                        type="text"
+                        type="password"
                         className="form-control"
-                        placeholder="fullname"
-                        name="fullname"
-                        onChange={updateinput}
-                    />
-                </div>
-                <div className="form-group">
-                    <label className="form-label">
-                         Date Of Birth
-                    </label>
-                    <input
-                        type="date"
-                        className="form-control"
-                        placeholder="dob"
-                        name="dob"
+                        placeholder="Password"
+                        name="pass"
                         onChange={updateinput}
                     />
                 </div>
@@ -103,12 +88,13 @@ function Myforgetpage() {
                     <Link to="/registor" className="btn btn-primary mt-2 ms-3">
                         New Register
                     </Link>
-                   
-                   
+                    <Link to="/dashboard" className="btn btn-secondary mt-2 ms-3">
+                        Go to Home
+                    </Link>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Myforgetpage;
+export default Userloginpage;
