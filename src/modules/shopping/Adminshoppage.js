@@ -124,7 +124,7 @@ function Adminshoppage() {
                         to={`/dashboard/fruitedit/${d._id}`}
                         className="btn btn-warning text-white d-flex align-content-center justify-content-center "
                       >
-                      //  <FiEdit /> 
+                        <FiEdit /> 
                       </Link>
                       </button>
                     </div>
