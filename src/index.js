@@ -69,10 +69,10 @@ theme="colored"
       <Routes>
       
 
-        <Route path='' element={<Myloginpage />}></Route>
+        <Route path='login' element={<Myloginpage />}></Route>
         <Route path='registor' element={<Myregistorpage/>}></Route>
         <Route path='Myforgetpage' element={<Myforgetpage/>}/>
-        <Route path='dashboard' element={<Mylandingpage/>}>
+        <Route path='' element={<Mylandingpage/>}>
         <Route path='Aboutpage' element={<Aboutpage/>}/>
         <Route path='ContactUs' element={<ContactUs/>}/>
         <Route path='Userloginpage' element={<Userloginpage/>}/>
